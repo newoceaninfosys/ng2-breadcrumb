@@ -41,4 +41,3 @@ Ng2BreadcrumbModule = Ng2BreadcrumbModule_1 = __decorate([
 ], Ng2BreadcrumbModule);
 exports.Ng2BreadcrumbModule = Ng2BreadcrumbModule;
 var Ng2BreadcrumbModule_1;
-//# sourceMappingURL=app.module.js.map

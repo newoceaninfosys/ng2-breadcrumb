@@ -12,10 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var breadcrumbService_1 = require("./breadcrumbService");
-/**
- * This component shows a breadcrumb trail for available routes the router can navigate to.
- * It subscribes to the router in order to update the breadcrumb trail as you navigate to a component.
- */
 var BreadcrumbComponent = (function () {
     function BreadcrumbComponent(router, breadcrumbService) {
         this.router = router;
@@ -30,7 +26,7 @@ var BreadcrumbComponent = (function () {
             this._urls.unshift(this.prefix);
         }
         this._routerSubscription = this.router.events.subscribe(function (navigationEnd) {
-            _this._urls.length = 0; //Fastest way to clear out array
+            _this._urls.length = 0;
             _this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
         });
     };
@@ -43,11 +39,10 @@ var BreadcrumbComponent = (function () {
     };
     BreadcrumbComponent.prototype.generateBreadcrumbTrail = function (url) {
         if (!this.breadcrumbService.isRouteHidden(url)) {
-            //Add url to beginning of array (since the url is being recursively broken down from full url to its parent)
             this._urls.unshift(url);
         }
         if (url.lastIndexOf('/') > 0) {
-            this.generateBreadcrumbTrail(url.substr(0, url.lastIndexOf('/'))); //Find last '/' and add everything before it as a parent route
+            this.generateBreadcrumbTrail(url.substr(0, url.lastIndexOf('/')));
         }
         else if (this.prefix.length > 0) {
             this._urls.unshift(this.prefix);
@@ -81,4 +76,3 @@ BreadcrumbComponent = __decorate([
         breadcrumbService_1.BreadcrumbService])
 ], BreadcrumbComponent);
 exports.BreadcrumbComponent = BreadcrumbComponent;
-//# sourceMappingURL=breadcrumb.js.map

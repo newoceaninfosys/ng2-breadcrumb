@@ -8,7 +8,8 @@
     "tsc": "ngc -w",
     "ngc": "ngc",
     "build": "ngc",
-    "bundles": "ngc -m system --rootDir ./app --outFile ./bundles/ng2-breadcrumb.js"
+    "bundles": "ngc -m system --rootDir ./app --outFile ./bundles/ng2-breadcrumb.js",
+    "build:aot": "rimraf bundles && ngc -p tsconfig-aot.json"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   ],
   "author": "Gerhard Mostert",
   "license": "MIT",
-  "main": "ng2-bootstrap.js",
+  "main": "bundles/app.module.js",
   "dependencies": {
     "@angular/common": "~2.4.3",
     "@angular/core": "~2.4.3",
