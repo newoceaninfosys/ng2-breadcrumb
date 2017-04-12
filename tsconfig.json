@@ -9,12 +9,9 @@
         "removeComments": false,
         "noImplicitAny": false
     },
-    "files": [
-        "ng2-breadcrumb.ts",
-        "app/app.module.ts",
-        "app/components/breadcrumb.ts",
-        "app/components/breadcrumbService.ts"
-    ],
+    "angularCompilerOptions": {
+        "genDir": "compiled"
+    },  
     "exclude": [
         "node_modules",
         "bundles",

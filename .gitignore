@@ -1,7 +1,9 @@
 /node_modules/
 /build/
+/bundles/
 /dist/
 /.idea/
 *.log
 
-/aot
+/compiled
+*.metadata.json
