@@ -3,11 +3,14 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "removeComments": true,
     "noImplicitAny": false,
+    "declaration": true,
+    "rootDir": ".",
+    "outDir": "./bundles",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,8 +20,15 @@
     ]
   },
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "genDir": "aot",
+    "strictMetadataEmit": true
   },
+  "files": [
+    "ng2-breadcrumb.ts",
+    "app/app.module.ts",
+    "app/components/breadcrumb.ts",
+    "app/components/breadcrumbService.ts"
+  ],
   "exclude": [
     "node_modules",
     "bundles",

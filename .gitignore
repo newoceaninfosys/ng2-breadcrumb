@@ -1,7 +1,7 @@
 /node_modules/
 /build/
-/bundles/
 /dist/
+/aot/
 /.idea/
 *.log
 
