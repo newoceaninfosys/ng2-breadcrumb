@@ -38,10 +38,12 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
             this._urls.unshift(this.prefix);
         }
 
-        this._routerSubscription = this.router.events.subscribe((navigationEnd:NavigationEnd) => {
-            this._urls.length = 0; //Fastest way to clear out array
-            if(navigationEnd.urlAfterRedirects || navigationEnd.url) { // fix lazy-load issue
-                this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
+        this._routerSubscription = this.router.events.subscribe((navigationEnd) => {
+            if (navigationEnd instanceof NavigationEnd) { // Fixed breadcrumb change when a route still navigating
+                this._urls.length = 0; //Fastest way to clear out array
+                if (navigationEnd.urlAfterRedirects || navigationEnd.url) { // fix lazy-load issue
+                    this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
+                }
             }
         });
     }
