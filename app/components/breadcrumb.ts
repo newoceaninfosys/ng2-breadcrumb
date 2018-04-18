@@ -36,6 +36,8 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
         
         if (this.prefix.length > 0) {
             this._urls.unshift(this.prefix);
+        } else {
+            this.generateBreadcrumbTrail(this.router.url);
         }
 
         this._routerSubscription = this.router.events.subscribe((navigationEnd) => {
