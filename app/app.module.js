@@ -15,30 +15,31 @@ var breadcrumb_1 = require("./components/breadcrumb");
 var breadcrumbService_1 = require("./components/breadcrumbService");
 __export(require("./components/breadcrumb"));
 __export(require("./components/breadcrumbService"));
-var Ng2BreadcrumbModule = Ng2BreadcrumbModule_1 = (function () {
+var Ng2BreadcrumbModule = /** @class */ (function () {
     function Ng2BreadcrumbModule() {
     }
+    Ng2BreadcrumbModule_1 = Ng2BreadcrumbModule;
     Ng2BreadcrumbModule.forRoot = function () {
         return {
             ngModule: Ng2BreadcrumbModule_1,
             providers: [breadcrumbService_1.BreadcrumbService]
         };
     };
+    Ng2BreadcrumbModule = Ng2BreadcrumbModule_1 = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule
+            ],
+            declarations: [
+                breadcrumb_1.BreadcrumbComponent
+            ],
+            exports: [
+                breadcrumb_1.BreadcrumbComponent
+            ]
+        })
+    ], Ng2BreadcrumbModule);
     return Ng2BreadcrumbModule;
+    var Ng2BreadcrumbModule_1;
 }());
-Ng2BreadcrumbModule = Ng2BreadcrumbModule_1 = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule
-        ],
-        declarations: [
-            breadcrumb_1.BreadcrumbComponent
-        ],
-        exports: [
-            breadcrumb_1.BreadcrumbComponent
-        ]
-    })
-], Ng2BreadcrumbModule);
 exports.Ng2BreadcrumbModule = Ng2BreadcrumbModule;
-var Ng2BreadcrumbModule_1;
 //# sourceMappingURL=app.module.js.map
