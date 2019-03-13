@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var BreadcrumbService = (function () {
+var BreadcrumbService = /** @class */ (function () {
     function BreadcrumbService() {
         this.routesFriendlyNames = new Map();
         this.routesFriendlyNamesRegex = new Map();
@@ -25,6 +25,9 @@ var BreadcrumbService = (function () {
     BreadcrumbService.prototype.addFriendlyNameForRoute = function (route, name) {
         this.routesFriendlyNames.set(route, name);
     };
+    BreadcrumbService.prototype.removeFriendlyNameForRoute = function (routeRegex) {
+        return this.routesFriendlyNames.delete(routeRegex);
+    };
     /**
      * Specify a friendly name for the corresponding route matching a regular expression.
      *
@@ -34,6 +37,9 @@ var BreadcrumbService = (function () {
     BreadcrumbService.prototype.addFriendlyNameForRouteRegex = function (routeRegex, name) {
         this.routesFriendlyNamesRegex.set(routeRegex, name);
     };
+    BreadcrumbService.prototype.removeFriendlyNameForRouteRegex = function (routeRegex) {
+        return this.routesFriendlyNamesRegex.delete(routeRegex);
+    };
     /**
      * Specify a callback for the corresponding route.
      * When a mathing url is navigatedd to, the callback function is invoked to get the name to be displayed in the breadcrumb.
@@ -41,12 +47,18 @@ var BreadcrumbService = (function () {
     BreadcrumbService.prototype.addCallbackForRoute = function (route, callback) {
         this.routesWithCallback.set(route, callback);
     };
+    BreadcrumbService.prototype.removeCallbackForRoute = function (routeRegex) {
+        return this.routesWithCallback.delete(routeRegex);
+    };
     /**
      * Specify a callback for the corresponding route matching a regular expression.
      * When a mathing url is navigatedd to, the callback function is invoked to get the name to be displayed in the breadcrumb.
      */
     BreadcrumbService.prototype.addCallbackForRouteRegex = function (routeRegex, callback) {
         this.routesWithCallbackRegex.set(routeRegex, callback);
+    };
+    BreadcrumbService.prototype.removeCallbackForRouteRegex = function (routeRegex) {
+        return this.routesWithCallbackRegex.delete(routeRegex);
     };
     /**
      * Show the friendly name for a given route (url). If no match is found the url (without the leading '/') is shown.
@@ -87,12 +99,22 @@ var BreadcrumbService = (function () {
             this.hideRoutes.push(route);
         }
     };
+    BreadcrumbService.prototype.removeHideRoute = function (routeRegex) {
+        if (this.hideRoutes.includes(routeRegex)) {
+            this.hideRoutes.splice(this.hideRoutes.indexOf(routeRegex), 1);
+        }
+    };
     /**
      * Specify a route (url) regular expression that should not be shown in the breadcrumb.
      */
     BreadcrumbService.prototype.hideRouteRegex = function (routeRegex) {
         if (!this.hideRoutesRegex.includes(routeRegex)) {
             this.hideRoutesRegex.push(routeRegex);
+        }
+    };
+    BreadcrumbService.prototype.removeHideRouteRegex = function (routeRegex) {
+        if (this.hideRoutesRegex.includes(routeRegex)) {
+            this.hideRoutesRegex.splice(this.hideRoutesRegex.indexOf(routeRegex), 1);
         }
     };
     /**
@@ -107,10 +129,10 @@ var BreadcrumbService = (function () {
         });
         return hide;
     };
+    BreadcrumbService = __decorate([
+        core_1.Injectable()
+    ], BreadcrumbService);
     return BreadcrumbService;
 }());
-BreadcrumbService = __decorate([
-    core_1.Injectable()
-], BreadcrumbService);
 exports.BreadcrumbService = BreadcrumbService;
 //# sourceMappingURL=breadcrumbService.js.map

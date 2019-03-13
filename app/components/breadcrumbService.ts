@@ -19,6 +19,10 @@ export class BreadcrumbService {
     addFriendlyNameForRoute(route: string, name: string): void {
         this.routesFriendlyNames.set(route, name);
     }
+
+    removeFriendlyNameForRoute(routeRegex: string): boolean {
+        return this.routesFriendlyNames.delete(routeRegex);
+    }
     
     /**
      * Specify a friendly name for the corresponding route matching a regular expression.
@@ -29,6 +33,10 @@ export class BreadcrumbService {
     addFriendlyNameForRouteRegex(routeRegex: string, name: string): void {
         this.routesFriendlyNamesRegex.set(routeRegex, name);
     }
+
+    removeFriendlyNameForRouteRegex(routeRegex: string): boolean {
+        return this.routesFriendlyNamesRegex.delete(routeRegex);
+    }
     
     /**
      * Specify a callback for the corresponding route.
@@ -37,6 +45,10 @@ export class BreadcrumbService {
     addCallbackForRoute(route: string, callback: (id: string) => string): void {
         this.routesWithCallback.set(route, callback);
     }
+
+    removeCallbackForRoute(routeRegex: string): boolean {
+        return this.routesWithCallback.delete(routeRegex);
+    }
     
     /**
      * Specify a callback for the corresponding route matching a regular expression.
@@ -44,6 +56,10 @@ export class BreadcrumbService {
      */
     addCallbackForRouteRegex(routeRegex: string, callback: (id: string) => string): void {
         this.routesWithCallbackRegex.set(routeRegex, callback);
+    }
+
+    removeCallbackForRouteRegex(routeRegex: string): boolean {
+        return this.routesWithCallbackRegex.delete(routeRegex);
     }
 
     /**
@@ -91,6 +107,12 @@ export class BreadcrumbService {
             this.hideRoutes.push(route);
         }
     }
+
+    removeHideRoute(routeRegex: string): void {
+        if (this.hideRoutes.includes(routeRegex)) {
+            this.hideRoutes.splice(this.hideRoutes.indexOf(routeRegex), 1);
+        }
+    }
     
     /**
      * Specify a route (url) regular expression that should not be shown in the breadcrumb.
@@ -98,6 +120,12 @@ export class BreadcrumbService {
     hideRouteRegex(routeRegex: string): void {
         if (!this.hideRoutesRegex.includes(routeRegex)) {
             this.hideRoutesRegex.push(routeRegex);
+        }
+    }
+
+    removeHideRouteRegex(routeRegex: string): void {
+        if (this.hideRoutesRegex.includes(routeRegex)) {
+            this.hideRoutesRegex.splice(this.hideRoutesRegex.indexOf(routeRegex), 1);
         }
     }
     
