@@ -1,6 +1,6 @@
 {
   "name": "@nois/ngx-breadcrumb",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A component that creates a breadcrumb trail for router paths",
   "scripts": {
     "start": "tsc && concurrently \"npm run ngc\" \"npm run lite\" ",
@@ -20,7 +20,7 @@
   ],
   "author": "Gerhard Mostert",
   "license": "MIT",
-  "main": "bundles/app.module.js",
+  "main": "bundles/ngx-breadcrumb.js",
   "dependencies": {},
   "devDependencies": {
     "@angular/common": "~2.4.3",
