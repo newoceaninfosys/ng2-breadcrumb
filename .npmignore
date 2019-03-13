@@ -12,6 +12,17 @@ tests
 typings/*
 /compiled
 *.ngFactory.ts
+/aot
+/app
+/demo
+/index.html
+/ngx-breadcrumb.metadata.json
+/ngx-breadcrumb.ts
+/ngx-breadcrumb.js
+/ngx-breadcrumb.js.map
+/systemjs.config.js
+/tsconfig.json
+/tsconfig-aot.json
 
 #################
 ## JetBrains

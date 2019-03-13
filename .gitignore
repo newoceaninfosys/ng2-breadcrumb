@@ -6,3 +6,4 @@
 /bundles/
 /.idea/
 *.log
+/package-lock.json
