@@ -24,7 +24,7 @@
     "strictMetadataEmit": true
   },
   "files": [
-    "ng2-breadcrumb.ts",
+    "ngx-breadcrumb.ts",
     "app/app.module.ts",
     "app/components/breadcrumb.ts",
     "app/components/breadcrumbService.ts"

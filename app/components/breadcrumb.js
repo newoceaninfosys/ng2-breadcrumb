@@ -33,9 +33,9 @@ var BreadcrumbComponent = /** @class */ (function () {
             this.generateBreadcrumbTrail(this.router.url);
         }
         this._routerSubscription = this.router.events.subscribe(function (navigationEnd) {
-            if (navigationEnd instanceof router_1.NavigationEnd) {
+            if (navigationEnd instanceof router_1.NavigationEnd) { // Fixed breadcrumb change when a route still navigating
                 _this._urls.length = 0; //Fastest way to clear out array
-                if (navigationEnd.urlAfterRedirects || navigationEnd.url) {
+                if (navigationEnd.urlAfterRedirects || navigationEnd.url) { // fix lazy-load issue
                     _this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
                 }
             }
