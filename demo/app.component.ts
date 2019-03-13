@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { BreadcrumbService } from '../app/app.module';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {BreadcrumbService} from '../app/app.module';
 
 @Component({
     selector: 'app',
@@ -19,8 +19,8 @@ export class AppComponent {
         breadcrumbService.hideRoute('/comp1/comp2/comp3');
         breadcrumbService.addCallbackForRouteRegex('/comp1/comp2/comp3/[0-9]', this.getName);
     }
-    
-    getName(id:string): string {
+
+    getName(id: string): string {
         return 'Comp ' + id;
     }
 }
@@ -67,9 +67,9 @@ export class Component2 {
 export class Component3 {
     constructor(private router: Router) {
     }
-    
-     goTo(): void {
-        this.router.navigate(['/comp1/comp2/comp3/' + Math.floor(Math.random()*100))]);
+
+    goTo(): void {
+        this.router.navigate(['/comp1/comp2/comp3/' + Math.floor(Math.random() * 100)])
     }
 }
 

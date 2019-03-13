@@ -1,6 +1,6 @@
 {
   "name": "@nois/ngx-breadcrumb",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A component that creates a breadcrumb trail for router paths",
   "scripts": {
     "start": "tsc && concurrently \"npm run ngc\" \"npm run lite\" ",
@@ -45,7 +45,7 @@
     "rimraf": "^2.6.3",
     "rxjs": "5.4.2",
     "systemjs": "0.19.27",
-    "typescript": "^2.1.5",
+    "typescript": "^3.3.3333",
     "zone.js": "^0.7.4"
   },
   "bugs": {
